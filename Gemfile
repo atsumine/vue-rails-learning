@@ -17,6 +17,10 @@ gem 'therubyracer', platforms: :ruby
 gem 'vuejs-rails'
 gem 'materialize-sass'
 
+# for API usage
+gem 'grape'
+gem 'hashie-forbidden_attributes'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
