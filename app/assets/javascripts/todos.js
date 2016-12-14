@@ -1,2 +1,19 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+
+$(document).on('ready page:load', function() {
+        new Vue({
+            el: "#todo_index",
+            data: {
+                items: []
+            },
+            created: function() {
+                console.log('hoge');
+                this.$http.get('/todos.json').then(function(response){
+                    // success callback
+                    console.log(response);
+                }, function(response) {
+                    console.log(response);
+                    // error callback
+                });
+            }
+        });
+});

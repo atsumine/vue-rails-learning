@@ -2,30 +2,31 @@
 
 <h1>Todos</h1>
 
-<table>
-  <thead>
+<div id="todo_index">
+  <table>
+    <thead>
     <tr>
       <th>Name</th>
       <th>Deadline</th>
       <th>Done</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @todos.each do |todo| %>
-      <tr>
-        <td><%= todo.name %></td>
-        <td><%= todo.deadline %></td>
-        <td><%= todo.done %></td>
-        <td><%= link_to 'Show', todo %></td>
-        <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-        <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= todo.name %></td>
+          <td><%= todo.deadline %></td>
+          <td><%= todo.done %></td>
+          <td><%= link_to 'Show', todo %></td>
+          <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
+          <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+  <br>
 
-<br>
-
-<%= link_to 'New Todo', new_todo_path %>
+  <%= link_to 'New Todo', new_todo_path %>
+</div>
