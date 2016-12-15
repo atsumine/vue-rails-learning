@@ -13,17 +13,15 @@
     </tr>
     </thead>
 
-    <tbody>
-    <% @todos.each do |todo| %>
-        <tr>
-          <td><%= todo.name %></td>
-          <td><%= todo.deadline %></td>
-          <td><%= todo.done %></td>
-          <td><%= link_to 'Show', todo %></td>
-          <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
-          <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-    <% end %>
+    <tbody v-for="todo in todos">
+      <tr>
+        <td>{{ todo.name }}</td>
+        <td>{{ todo.deadline }}</td>
+        <td><{{ todo.done }}</td>
+        <td>show</td>
+        <td>edit</td>
+        <td>delete</td>
+      </tr>
     </tbody>
   </table>
   <br>
