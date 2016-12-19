@@ -13,18 +13,16 @@
       <th>Name</th>
       <th>Deadline</th>
       <th>Done</th>
-      <th colspan="3"></th>
+      <th></th>
     </tr>
     </thead>
 
-    <tbody v-for="todo in todos">
+    <tbody v-for="(todo, index) in todos">
       <tr>
         <td>{{ todo.name }}</td>
         <td>{{ todo.deadline }}</td>
         <td><{{ todo.done }}</td>
-        <td>show</td>
-        <td>edit</td>
-        <td>delete</td>
+        <td><input type="button" v-on:click="deleteTodo(index)" value="delete"></td>
       </tr>
     </tbody>
   </table>
