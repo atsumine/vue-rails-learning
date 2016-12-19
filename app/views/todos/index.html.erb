@@ -5,7 +5,7 @@
 
 <div id="todoIndex">
   <form v-on:submit.prevent="addTodo($event)" action="/todos">
-    <input type="text" id="new_todo_area">
+    <input type="text" id="new_todo_area" v-model="newTodoName">
   </form>
   <table>
     <thead>

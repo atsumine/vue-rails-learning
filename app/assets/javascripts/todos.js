@@ -2,7 +2,8 @@ $(document).on('ready page:load', function() {
         var todoApp = new Vue({
             el: "#todoIndex",
             data: {
-                todos: []
+                todos: [],
+                newTodoName: ''
             },
             created: function() {
                 this.$http.get('/todos.json').then(function(response){
@@ -15,9 +16,9 @@ $(document).on('ready page:load', function() {
             },
             methods: {
                 addTodo: function (event){
-                    if (this.input === '') return;
-                    this.todos.push({name: this.input, deadline: Date.now(), done: false});
-                    this.input = '';
+                    if (this.newTodoName === '') return;
+                    this.todos.push({name: this.newTodoName, deadline: Date.now(), done: false});
+                    this.newTodoName = '';
                 },
 
                 deleteTodo: function (index) {
