@@ -1,6 +1,6 @@
 
 $(document).on('ready page:load', function() {
-        new Vue({
+        var app = new Vue({
             el: "#todo_index",
             data: {
                 todos: []
@@ -13,6 +13,19 @@ $(document).on('ready page:load', function() {
                 }, function(response) {
                     console.error('GET /todos.json failed. Check log file.');
                 });
+            },
+            methods: {
+                addTodo: function (event){
+                    console.log('addTodo successfully called!!');
+                    if (this.input === '') {
+                        console.log('empty input.');
+                        return;
+                    }
+                    this.todos.push({name: this.input, deadline: Date.now(), done: false});
+                    this.input = '';
+                    console.log('todo added successfully!!');
+                    return;
+                }
             }
         });
 });
