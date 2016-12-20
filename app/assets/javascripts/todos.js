@@ -16,7 +16,7 @@ $(document).on('ready page:load', function() {
             });
         },
         methods: {
-            addTodo: function(event) {
+            createTodo: function() {
                 if (this.newTodoName === '') return;
                 this.$http.post('/api/v1/todos', { name: this.newTodoName }).then(function() {
                     this.todos.push({ name: this.newTodoName });
@@ -28,12 +28,17 @@ $(document).on('ready page:load', function() {
             },
 
             deleteTodo: function(index, id) {
-                this.$http.delete('/api/v1/todos/:id', { id: id }).then(function() {
+                this.$http.delete('/api/v1/todos/' + id.toString()).then(function() {
                     this.todos.splice(index, 1);
                 }, function(response) {
                     console.error(response);
                     console.error('DELETE /api/v1/todos/:id failed. Check log file.');
                 });
+            },
+            updateTodo: function(index, id) {
+                this.$http.put('/api/v1/todos/' + id.toString()).then(function(response) {
+
+                })
             }
         }
     });

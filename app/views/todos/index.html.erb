@@ -3,7 +3,7 @@
 <h1>Todos</h1>
 
 <div id="todoIndex">
-  <form v-on:submit.prevent="addTodo($event)" action="/todos">
+  <form v-on:submit.prevent="createTodo($event)" action="/todos">
     <input type="text" id="new_todo_area" v-model="newTodoName">
   </form>
   <table>
@@ -18,7 +18,7 @@
     <tbody v-for="(todo, index) in todos">
       <tr>
         <td>{{ todo.name }}</td>
-        <td><{{ todo.done }}</td>
+        <td>{{ todo.done }}</td>
         <td><input type="button" v-on:click="deleteTodo(index, todo.id)" value="delete"></td>
       </tr>
     </tbody>
