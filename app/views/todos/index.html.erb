@@ -2,7 +2,6 @@
 
 <h1>Todos</h1>
 
-
 <div id="todoIndex">
   <form v-on:submit.prevent="addTodo($event)" action="/todos">
     <input type="text" id="new_todo_area" v-model="newTodoName">
@@ -11,7 +10,6 @@
     <thead>
     <tr>
       <th>Name</th>
-      <th>Deadline</th>
       <th>Done</th>
       <th></th>
     </tr>
@@ -20,9 +18,8 @@
     <tbody v-for="(todo, index) in todos">
       <tr>
         <td>{{ todo.name }}</td>
-        <td>{{ todo.deadline }}</td>
         <td><{{ todo.done }}</td>
-        <td><input type="button" v-on:click="deleteTodo(index)" value="delete"></td>
+        <td><input type="button" v-on:click="deleteTodo(index, todo.id)" value="delete"></td>
       </tr>
     </tbody>
   </table>

@@ -25,7 +25,6 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-    @todo.category_id = 1 # TODO: DELETE THIS!!
 
     respond_to do |format|
       if @todo.save

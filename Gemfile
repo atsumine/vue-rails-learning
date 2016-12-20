@@ -14,12 +14,17 @@ gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+#
 gem 'vuejs-rails'
 gem 'materialize-sass'
 
-# for API usage
+# API
 gem 'grape'
+gem 'grape-jbuilder'
 gem 'hashie-forbidden_attributes'
+
+# jsでdatetimeを扱えるようにする
+gem 'momentjs-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

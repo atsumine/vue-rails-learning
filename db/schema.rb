@@ -12,21 +12,11 @@
 
 ActiveRecord::Schema.define(version: 20161212053501) do
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "todos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.boolean  "done"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "todos", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "deadline"
-    t.boolean  "done"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_todos_on_category_id", using: :btree
-  end
-
-  add_foreign_key "todos", "categories"
 end

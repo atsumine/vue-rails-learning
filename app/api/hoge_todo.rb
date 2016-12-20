@@ -10,28 +10,19 @@ module HogeTodo
         Todo.all
       end
 
-      route_param :id do
-        desc 'Return a todo'
-        get do
-          Todo.find_by(id: params[:id], status: true)
-        end
-      end
-
       desc 'create todo'
       params do
-        requires :todo, type: String, desc: 'todo name'
-        requires :deadline, type: Date, desc: 'deadline date'
-        requires :category_id, type: Integer, desc: 'category id'
+        requires :name, type: String, desc: 'todo name'
       end
       post do
-        Todo.create(todo: params[:todo], deadline: params[:deadline], category_id: params[:category_id])
+        Todo.create(name: params[:name], done: false)
       end
 
       desc 'delete todo'
       params do
         requires :id, type: Integer, desc: 'todo id'
       end
-      delete do
+      delete ':id' do
         Todo.find(params[:id]).destroy
       end
     end
