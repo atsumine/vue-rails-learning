@@ -19,6 +19,7 @@
       <tr>
         <td>{{ todo.name }}</td>
         <td>{{ todo.done }}</td>
+        <td><input type="checkbox" :checked="todo.done"/></td>
         <td><input type="button" v-on:click="deleteTodo(index, todo.id)" value="delete"></td>
       </tr>
     </tbody>
