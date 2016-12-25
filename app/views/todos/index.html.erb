@@ -9,6 +9,7 @@
   <table>
     <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Done</th>
       <th></th>
@@ -17,6 +18,7 @@
 
     <tbody v-for="(todo, index) in todos">
       <tr>
+        <td>{{ todo.id }}</td>
         <td>{{ todo.name }}</td>
         <td>{{ todo.done }}</td>
         <td><input type="checkbox" :checked="todo.done"/></td>

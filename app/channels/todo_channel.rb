@@ -5,6 +5,13 @@ class TodoChannel < ApplicationCable::Channel
   end
 
   def unsubscribed
-    # Any cleanup needed when channel is unsubscribed
+  end
+
+  def addNewTodo(data)
+    ActionCable.server.broadcast 'todo_channel', todo: data
+  end
+
+  def deleteTodo(data)
+    ActionCable.server.broadcast 'todo_channel', todo: data
   end
 end
