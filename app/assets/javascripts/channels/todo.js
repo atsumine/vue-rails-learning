@@ -9,10 +9,8 @@ App.todo = App.cable.subscriptions.create("TodoChannel", {
       switch(data.method) {
           case 'add':
               App.todoApp.insertTodo(data.todo);
-              console.log('addTodo called');
               break;
           case 'delete':
-              console.log(data);
               App.todoApp.removeTodo(data.todo);
               break;
       }

@@ -38,11 +38,7 @@ $(document).on('ready page:load', function() {
             },
 
             removeTodo: function(data) {
-                this.todos.filter(function(todo) {
-                    console.log(this.todos);
-                    // TODO: この指定の仕方どうにかならんかね
-                    App.todoApp.todos.splice(data.index, 1);
-                });
+                this.todos.splice(data.index, 1);
             }
         }
     });
