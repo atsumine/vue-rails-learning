@@ -8,10 +8,10 @@ class TodoChannel < ApplicationCable::Channel
   end
 
   def addNewTodo(data)
-    ActionCable.server.broadcast 'todo_channel', todo: data
+    ActionCable.server.broadcast 'todo_channel', todo: data, method: 'add'
   end
 
   def deleteTodo(data)
-    ActionCable.server.broadcast 'todo_channel', todo: data
+    ActionCable.server.broadcast 'todo_channel', todo: data, method: 'delete'
   end
 end

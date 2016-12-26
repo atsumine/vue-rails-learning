@@ -18,7 +18,6 @@ $(document).on('ready page:load', function() {
             createTodo: function() {
                 if (this.newTodoName === '') return;
                 this.$http.post('/api/v1/todos', { name: this.newTodoName }).then(function(response) {
-                    console.log(response);
                     App.todo.addNewTodo(response);
                     this.newTodoName = '';
                 }, function(response) {
@@ -28,20 +27,22 @@ $(document).on('ready page:load', function() {
 
             deleteTodo: function(index, id) {
                 this.$http.delete('/api/v1/todos/' + id.toString()).then(function() {
-                    this.todos.splice(index, 1);
-                    // removeTodo(index);
+                    App.todo.deleteTodo(index);
                 }, function(response) {
                     console.error('DELETE /api/v1/todos/:id failed. Check log file.');
                 });
             },
-            updateTodo: function(index, id) {
-                this.$http.put('/api/v1/todos/' + id.toString()).then(function(response) {
-                })
-            }, insertTodo: function(data) {
-                console.log(data);
+
+            insertTodo: function(data) {
                 this.todos.push({ id: data.id, name: data.name, done: data.done });
-            }, removeTodo: function(index) {
-                this.todos.splice(index, 1);
+            },
+
+            removeTodo: function(data) {
+                this.todos.filter(function(todo) {
+                    console.log(this.todos);
+                    // TODO: この指定の仕方どうにかならんかね
+                    App.todoApp.todos.splice(data.index, 1);
+                });
             }
         }
     });
